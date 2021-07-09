@@ -47,7 +47,7 @@ function mostrarSpinner(){
 function listarPeli(){
     const textTermino = document.querySelector('#buscar').value;
     mostrarSpinner();
-    const url = `http://www.omdbapi.com/?apikey=45b5eb40&s=${textTermino}`;
+    const url = `https://www.omdbapi.com/?apikey=45b5eb40&s=${textTermino}`;
     fetch(url)
     .then(respuesta => respuesta.json())
     .then(resultado => {
