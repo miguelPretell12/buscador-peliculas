@@ -25,9 +25,28 @@ function mostrarAlerta(mgs){
     });  
 }
 
+function mostrarSpinner(){
+    while(listadoPeli.firstChild){
+        listadoPeli.removeChild(listadoPeli.firstChild);
+    }
+    const spinner = document.createElement('div');
+    spinner.classList.add('sk-chase','flex-center');
+
+    spinner.innerHTML = `
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    `;
+
+    listadoPeli.appendChild(spinner);
+}
+
 function listarPeli(){
     const textTermino = document.querySelector('#buscar').value;
-
+    mostrarSpinner();
     const url = `http://www.omdbapi.com/?apikey=45b5eb40&s=${textTermino}`;
     fetch(url)
     .then(respuesta => respuesta.json())
